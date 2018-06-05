@@ -44,12 +44,12 @@ $(document).ready(function() {
     //calling the renderButtons function
     renderButtons();
     //function for when #animalBtns is clicked
-    $("#animalBtns").on("click", function() {
+    $(".animal").on("click", function() {
             
         var animal = $(this).attr("data-name");
         //applying giphy api url for gifs
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + 
-        topics + "&api_key=8fp1EMhNlTwFaFF9929IkX56PesgsDOf&rating&limit=10";
+        animal + "&api_key=8fp1EMhNlTwFaFF9929IkX56PesgsDOf&rating&limit=10";
 
         //preforming ajax get request from the api
         $.ajax({
@@ -67,7 +67,7 @@ $(document).ready(function() {
                 //into a new variable
                 var results = response.data;
                 //looping through the results(or for each button?)
-                for (let i = 0; i < results.length; i++) {
+                for (var i = 0; i < results.length; i++) {
                     //creating a div tag for those gifs
                     var gifDiv = $("<div>");
                     //creating a p tag with the responses results of the gifs 
